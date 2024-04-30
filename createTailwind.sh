@@ -7,15 +7,12 @@
 
 # Variable Global
 PROJECTNAME=""
-PWD=`pwd`
 
-
-# Función encargada de crear la estructura del proyecto base.
+# Función para crear la estructura del proyecto.
 create_tailwind_project (){
-    npm init -y
+    npm init -y > /dev/null
     npm install -D tailwindcss postcss autoprefixer
     npx tailwindcss init
-    # cat ../createTailwind/tailwind-config.txt > ./tailwind.config.js
 
     rm tailwind.config.js
     touch tailwind.config.js
@@ -39,70 +36,73 @@ create_tailwind_project (){
 
     cd ..
     # ./src
-    touch index.html
     
-    echo '<!DOCTYPE html>' > index.html
-    echo '<html lang="en">' >> index.html
-    echo '<head>' >> index.html
-    echo '    <meta charset="UTF-8">' >> index.html
-    echo '    <meta name="viewport" content="width=device-width, initial-scale=1.0">' >> index.html
-    echo '    <title>Success</title>' >> index.html
-    echo '    <link rel="stylesheet" href="./css/output.css">' >> index.html
-    echo '</head>' >> index.html
-    echo '<body>' >> index.html
-    echo '    <div class="h-svh flex items-center justify-center">' >> index.html
-    echo '        <div class="w-52 h-72 bg-neutral-100 shadow-2xl rounded-lg border border-blue-200 flex flex-col justify-center gap-2 hover:animate-pulse">' >> index.html
-    echo '            <div class="w-12 mx-auto">' >> index.html
-    echo '                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 54 33"><g clip-path="url(#prefix__clip0)"><path fill="#38bdf8" fill-rule="evenodd" d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z" clip-rule="evenodd"/></g><defs><clipPath id="prefix__clip0"><path fill="#fff" d="M0 0h54v32.4H0z"/></clipPath></defs></svg>' >> index.html
-    echo '            </div>' >> index.html
-    echo '' >> index.html
-    echo '            <p class="text-center">' >> index.html
-    echo '                <a class="text-blue-600" href="https://tailwindcss.com/docs/installation" target="_blank">tailwindcss</a>' >> index.html
-    echo '            </p>' >> index.html
-    echo '        </div>' >> index.html
-    echo '    </div>' >> index.html
-    echo '</body>' >> index.html
-    echo '</html>' >> index.html
+    touch index.html
+    touch test-me-first.html
+    
+    echo '<!DOCTYPE html>' > test-me-first.html
+    echo '<html lang="en">' >> test-me-first.html
+    echo '<head>' >> test-me-first.html
+    echo '    <meta charset="UTF-8">' >> test-me-first.html
+    echo '    <meta name="viewport" content="width=device-width, initial-scale=1.0">' >> test-me-first.html
+    echo '    <title>test-me-first</title>' >> test-me-first.html
+    echo '    <link rel="stylesheet" href="./css/output.css">' >> test-me-first.html
+    echo '</head>' >> test-me-first.html
+    echo '<body>' >> test-me-first.html
+    echo '    <div class="h-svh flex items-center justify-center">' >> test-me-first.html
+    echo '        <div class="w-52 h-72 bg-gradient-to-b from-blue-200 to-blue-50 shadow-2xl rounded-lg border border-blue-200 flex flex-col justify-center gap-2 hover:animate-pulse">' >> test-me-first.html
+    echo '            <div class="w-12 mx-auto">' >> test-me-first.html
+    echo '                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 54 33"><g clip-path="url(#prefix__clip0)"><path fill="#38bdf8" fill-rule="evenodd" d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z" clip-rule="evenodd"/></g><defs><clipPath id="prefix__clip0"><path fill="#fff" d="M0 0h54v32.4H0z"/></clipPath></defs></svg>' >> test-me-first.html
+    echo '            </div>' >> test-me-first.html
+    echo '' >> test-me-first.html
+    echo '            <p class="text-center">' >> test-me-first.html
+    echo '                <a class="text-blue-600" href="https://tailwindcss.com/docs/installation" target="_blank">tailwindcss</a>' >> test-me-first.html
+    echo '            </p>' >> test-me-first.html
+    echo '        </div>' >> test-me-first.html
+    echo '    </div>' >> test-me-first.html
+    echo '</body>' >> test-me-first.html
+    echo '</html>' >> test-me-first.html
 
     cd ..
     # ./main_folder
 
     # Definir la ruta al archivo package.json
     PACKAGE_JSON="package.json"
+    
     # Agregar la línea "watch" al objeto "scripts" en package.json
-    sed -i '/"scripts": {/a \    "watch": "tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch",' "$PACKAGE_JSON"
+    sed -i '/"scripts": {/a \    "dev": "tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch",' "$PACKAGE_JSON"
+    # Agregar la línea "minify" al objeto "scripts" en package.json
+    sed -i '/"scripts": {/a \    "build": "npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --minify",' "$PACKAGE_JSON"
         
     npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css
     
     echo ""
-    echo "==================="
-    echo "   run npm watch"
-    echo "==================="
-    sleep 3
-    
-    npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch
+    echo "========================================================="
+    echo "\e[92mModo desarrollo: npm run dev\e[0m"
+    echo "---------------------------------------------------------"
+    echo "\e[96mModo producción: npm run build\e[0m"
+    echo "========================================================="
+    echo "\e[33m                                       by: Pablo Figueroa\e[0m"
+    echo "========================================================="
 }
 
-# Función para crear el directorio base.
+# Función para crear el directorio.
 create_project_directory () {
     mkdir $1
-    echo "Directorio creado: $1"
-    cd $1
+    echo "\e[32mDirectorio creado: $1\e[0m"
     echo ""
-    echo " ================================================"
-    echo  "El proyecto será creado en la siguiente ruta: " 
-    echo " ================================================"
-    echo $PWD
-    sleep 3
+    cd $1
+    sleep 2
     create_tailwind_project
 }
 
-# Solicitud del nombre del proyecto
-read -p "Nombre del proyecto: " PROJECTNAME
-
-# Validación del ingreso del nombre del proyecto
-if [  -z "$PROJECTNAME" ]; then
-    echo "Debe ingresar nombre del proyecto"
-else
-    create_project_directory $PROJECTNAME;   
-fi
+# Bucle para solicitar el nombre del proyecto
+while [ -z "$PROJECTNAME" ]; do
+    read -p "Nombre del proyecto: " PROJECTNAME
+    if [ -z "$PROJECTNAME" ]; then
+        echo "\e[91mDebe ingresar Nombre del Proyecto!!!\e[0m"
+        echo ""
+    else
+        create_project_directory $PROJECTNAME
+    fi
+done
