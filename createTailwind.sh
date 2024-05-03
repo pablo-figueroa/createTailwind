@@ -17,16 +17,17 @@ create_tailwind_project (){
     rm tailwind.config.js
     touch tailwind.config.js
     echo 'module.exports = {' >> tailwind.config.js
-    echo 'content: ["./src/**/*.{html,js}"],' >> tailwind.config.js
-    echo 'theme: {' >> tailwind.config.js
+    echo '  content: ["./src/**/*.{html,js}"],' >> tailwind.config.js
+    echo '  theme: {' >> tailwind.config.js
     echo '    extend: {},' >> tailwind.config.js
-    echo '},' >> tailwind.config.js
-    echo 'variants:{' >> tailwind.config.js
+    echo '  },' >> tailwind.config.js
+    echo '  variants:{' >> tailwind.config.js
     echo '    extend:{' >> tailwind.config.js
-    echo "        with:['responsive','hover','focus']" >> tailwind.config.js
+    echo "      with:['responsive','hover','focus']" >> tailwind.config.js
     echo '    }' >> tailwind.config.js
-    echo '},' >> tailwind.config.js
-    echo 'plugins: [],' >> tailwind.config.js
+    echo '  },' >> tailwind.config.js
+    echo '  plugins: [' >> tailwind.config.js
+    echo '  ],' >> tailwind.config.js
     echo '}' >> tailwind.config.js
     
     mkdir src && cd src && mkdir css && cd css && touch input.css
@@ -65,6 +66,9 @@ create_tailwind_project (){
 
     cd ..
     # ./main_folder
+
+    # Descarga desde GitHub el instalador de Plugin (forms | typography | aspect-ratio)
+    curl -O https://github.com/pablo-figueroa/createTailwind/blob/main/installPlugins.sh
 
     # Definir la ruta al archivo package.json
     PACKAGE_JSON="package.json"
