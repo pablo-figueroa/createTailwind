@@ -17,6 +17,8 @@ create_tailwind_project (){
     rm tailwind.config.js
     touch tailwind.config.js
     echo 'module.exports = {' >> tailwind.config.js
+    echo "purge: []," >> tailwind.config.js
+    echo "darkMode: false, // or 'media' or 'class'" >> tailwind.config.js
     echo '  content: ["./src/**/*.{html,js}"],' >> tailwind.config.js
     echo '  theme: {' >> tailwind.config.js
     echo '    extend: {},' >> tailwind.config.js
