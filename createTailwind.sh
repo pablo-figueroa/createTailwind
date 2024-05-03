@@ -67,8 +67,7 @@ create_tailwind_project (){
     cd ..
     # ./main_folder
 
-    # Descarga desde GitHub el instalador de Plugin (forms | typography | aspect-ratio)
-    curl -O https://github.com/pablo-figueroa/createTailwind/blob/main/installPlugins.sh
+    
 
     # Definir la ruta al archivo package.json
     PACKAGE_JSON="package.json"
@@ -88,6 +87,49 @@ create_tailwind_project (){
     echo "========================================================="
     echo "\e[33m                                       by: Pablo Figueroa\e[0m"
     echo "========================================================="
+
+    touch install-plugins.sh
+    echo "npm install -D @tailwindcss/forms" >> install-plugins.sh
+    echo "npm install -D @tailwindcss/typography" >> install-plugins.sh
+    echo "npm install -D @tailwindcss/aspect-ratio" >> install-plugins.sh
+    echo "" >> install-plugins.sh
+    
+    echo "# Define el archivo tailwind.config.js" >> install-plugins.sh
+    echo 'FILE="tailwind.config.js"' >> install-plugins.sh
+    echo "" >> install-plugins.sh
+    echo "# Verifica si el archivo existe" >> install-plugins.sh
+    echo 'if [ -f "$FILE" ]; then' >> install-plugins.sh
+    echo "# Agrega los plugins al final del archivo usando sed" >> install-plugins.sh
+    echo "" >> install-plugins.sh
+    echo 'sed -i "/plugins: \[/a \    require("@tailwindcss/typography")," "$FILE"' >> install-plugins.sh
+    echo 'sed -i "/plugins: \[/a \    require("@tailwindcss/aspect-ratio")," "$FILE"' >> install-plugins.sh
+    echo 'sed -i "/plugins: \[/a \    require("@tailwindcss/forms")," "$FILE"' >> install-plugins.sh
+    echo "" >> install-plugins.sh
+    echo "echo '\e[32mPlugins agregados en tailwind.config.js\e[0m' " >> install-plugins.sh
+    echo 'echo "\e[31mAgregar las comillas en plugins en tailwind.config.js\e[0m"' >> install-plugins.sh
+    echo "" >> install-plugins.sh
+    echo "else" >> install-plugins.sh
+    echo '    echo "El archivo $FILE no existe."' >> install-plugins.sh
+    echo "fi" >> install-plugins.sh
+    
+
+    
+    # Mensaje de confirmación
+    echo "¿Desea instalar los plugins (forms|typography|aspect-ratio) ahora? (Escriba 'y' para confirmar)"
+
+    # Leer la entrada del usuario
+    read respuesta
+
+    # Verificar la respuesta
+    if [ "$respuesta" = "y" ] || [ "$respuesta" = "Y" ]; then
+        # Instalar plugins
+        sh install-plugins.sh
+    else
+        # Mensaje de información
+        echo "La instalación de plugins se puede realizar en cualquier momento ejecutando el comando 'sh install-plugins.sh'."
+    fi
+
+
 }
 
 # Función para crear el directorio.
