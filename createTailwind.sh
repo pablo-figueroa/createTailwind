@@ -75,7 +75,9 @@ create_tailwind_project (){
     PACKAGE_JSON="package.json"
     
     # Agregar la línea "watch" al objeto "scripts" en package.json
-    sed -i '/"scripts": {/a \    "dev": "tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch",' "$PACKAGE_JSON"
+    sed -i '/"scripts": {/a \    "watch": "tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch",' "$PACKAGE_JSON"
+    # Agregar la línea "dev" al objeto "scripts" en package.json
+    sed -i '/"scripts": {/a \    "dev": "tailwindcss -i ./src/css/input.css -o ./src/css/output.css",' "$PACKAGE_JSON"
     # Agregar la línea "minify" al objeto "scripts" en package.json
     sed -i '/"scripts": {/a \    "build": "npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --minify",' "$PACKAGE_JSON"
         
@@ -84,6 +86,8 @@ create_tailwind_project (){
     echo ""
     echo "========================================================="
     echo "\e[92mModo desarrollo: npm run dev\e[0m"
+    echo "---------------------------------------------------------"
+    echo "\e[92mModo desarrollando: npm run watch\e[0m"
     echo "---------------------------------------------------------"
     echo "\e[96mModo producción: npm run build\e[0m"
     echo "========================================================="
